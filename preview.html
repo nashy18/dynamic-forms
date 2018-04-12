@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Preview | Dynamic Form Builder </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/lib/bootstrap-responsive.min.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  <script data-main="assets/js/main-built.js" src="assets/js/lib/require.js"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-inverse" style="margin-top:-60px">
+    <div class="navbar-inner">
+      <a class="brand" href="index.html">Dynamic Form</a>
+      <ul class="nav pull-right">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="preview.html">Preview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row clearfix">
+      <!-- Building Form. -->
+      <div class="col-md-3 span3">
+        <div class="clearfix">
+          <h4>Available Forms</h2>
+          <div id="listdatadetails" class="well">
+          </div>
+        </div>
+      </div>
+      <!-- / Building Form. -->
+
+      <!-- Building Form. -->
+      <div class="col-md-9 span9">
+        <div class="clearfix">
+          <h4>Preview</h2>
+          <div id="listdatadetailsdata" class="well">
+          </div>
+        </div>
+      </div>
+      <!-- / Building Form. -->
+    </div>
+  </div>
+  <!-- /container -->
+  <script>
+    (function () {
+      var keyslist = Object.keys(localStorage); debugger
+      var anchor = ""
+      keyslist.forEach(function (dta) {
+        function_name = "myFunction('" + dta + "')"
+        anchor = anchor + '<button type="button" onclick="' + function_name + '" class="btn btn-link">' + dta + '</button> <br/>'
+
+
+      });
+      document.getElementById('listdatadetails').innerHTML = anchor
+
+
+    })();
+    function myFunction(_dta) {
+      debugger
+
+      document.getElementById('listdatadetailsdata').innerHTML = localStorage.getItem(_dta)
+      // var myWindow = window.open();
+      // myWindow.document.write(localStorage.getItem(_dta));
+    }
+
+
+    function generic() {
+      debugger
+      var k = formToJSON(document.getElementsByClassName('form-horizontal')[0])
+
+
+    }
+  </script>
+
+</body>
+
+</html>
