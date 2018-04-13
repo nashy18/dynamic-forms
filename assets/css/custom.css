@@ -112,3 +112,7 @@ form .popover form {
  width: 100%;
  overflow: hidden;
 }
+
+.help-block{
+  display:  none;
+}
