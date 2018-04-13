@@ -39,7 +39,7 @@
       <div class="col-md-3 span3">
         <div class="clearfix">
           <h4>Available Forms</h2>
-          <div id="listdatadetails" class="well">
+          <div id="divLIstAvailableForms" class="well">
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
       <div class="col-md-9 span9">
         <div class="clearfix">
           <h4>Preview</h2>
-          <div id="listdatadetailsdata" class="well">
+          <div id="divShowFormData" class="well">
           </div>
         </div>
       </div>
@@ -57,34 +57,27 @@
     </div>
   </div>
   <!-- /container -->
-  <script>
+  <script>  
+
+    function myFun() {
+      alert("The form was submitted");
+    }
+
     (function () {
-      var keyslist = Object.keys(localStorage); debugger
-      var anchor = ""
-      keyslist.forEach(function (dta) {
-        function_name = "myFunction('" + dta + "')"
-        anchor = anchor + '<button type="button" onclick="' + function_name + '" class="btn btn-link">' + dta + '</button> <br/>'
-
-
+      let keysList = Object.keys(localStorage),
+          anchor = ""
+      keysList.forEach(function (dta) {
+        let function_name = "myFunction('" + dta + "')"
+        anchor = anchor + '<button type="button" onclick="' + function_name + '" class="btn btn-link">' + dta + '</button> <br/>';
       });
-      document.getElementById('listdatadetails').innerHTML = anchor
-
+      document.getElementById('divLIstAvailableForms').innerHTML = anchor;
 
     })();
     function myFunction(_dta) {
-      debugger
-
-      document.getElementById('listdatadetailsdata').innerHTML = localStorage.getItem(_dta)
+      document.getElementById('divShowFormData').innerHTML = localStorage.getItem(_dta);
+      //setTimeout(function(){document.getElementById("divShowFormData").getElementsByClassName('btn')[0].setAttribute("onclick", myFun);},100);
       // var myWindow = window.open();
       // myWindow.document.write(localStorage.getItem(_dta));
-    }
-
-
-    function generic() {
-      debugger
-      var k = formToJSON(document.getElementsByClassName('form-horizontal')[0])
-
-
     }
   </script>
 

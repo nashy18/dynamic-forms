@@ -85,34 +85,39 @@
   </div>
   <!-- /container -->
   <script>
+    (function() {
+      // your page initialization code here
+      // the DOM will be available here
+      if (document.getElementById("#helptext") !== null) {
+        document.getElementById("#helptext").value = "";
+      }
+      document.getElementById('target').setAttribute("onsubmit", saveFunction);
+      //document.getElementById("#listdatadetailsdata .btn").addEventListener("onclick", myFunction);
+    })();
+
+   
+
+    function myFunction () {
+      alert("The form was submitted");
+    }
+
     function alertFunction() {
-      var txt;
-      var r = confirm("Are you sure you want to cancel");
+      const r = confirm("Are you sure you want to cancel");
       if (r == true) {
         window.location.reload()
       }
 
     }
     function saveFunction() {
-      var renderedhtml = ""
-      renderedhtml = renderedhtml + document.getElementById('render').value
+      let renderedHtml = ""
+      renderedHtml = renderedHtml + document.getElementById('render').value
 
-      localStorage.setItem(document.getElementById('target').getElementsByTagName('legend')[0].innerHTML, renderedhtml);
-      var rd = confirm("Saved Successfully");
+      localStorage.setItem(document.getElementById('target').getElementsByTagName('legend')[0].innerHTML, renderedHtml);
+      const rd = confirm("Saved Successfully");
       if (rd == true) {
         window.location.reload()
       }
     }
-
-    $("input#UserName").on({
-      keydown: function (e) {
-        if (e.which === 32)
-          return false;
-      },
-      change: function () {
-        this.value = this.value.replace(/\s/g, "");
-      }
-    });
   </script>
 
 </body>
