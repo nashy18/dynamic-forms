@@ -1,2 +1,11 @@
 <label class='control-label'> <%= label %> </label>
 <input class='input-large field' data-type="<%- type %>" type='text' name='<%- name %>' id='<%- name %>' value ='<%- value %>' />
+<script>
+    if('<%= label %>'=="ID"){
+   //  $('#<%- name %>' ).prop('disabled', true);
+        $('#<%- name %>' ).prop('value', '<%- label %>'.replace(" ", ""));
+    }
+    $('#<%- name %>').on('input', function() { 
+        $('#<%- name %>' ).prop('value',  $(this).val().replace(" ", ""));
+   });
+</script>

@@ -56,13 +56,18 @@ define([
           var $e = $(e)
           , type = $e.attr("data-type")
           , name = $e.attr("id");
-
+          var obj={}
+          Object.keys($e[0].attributes).forEach(function(element,i) {
+            obj[$e[0].attributes[element].name]=$e[0].attributes[element].value            
+          });
+          console.log(obj)
           switch(type) {
             case "checkbox":
               boundContext.model.setField(name, $e.is(":checked"));
               break;
             case "input":
               boundContext.model.setField(name, $e.val());
+              
               break;
             case "textarea":
               boundContext.model.setField(name, $e.val());
