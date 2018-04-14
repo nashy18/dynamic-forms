@@ -60,7 +60,13 @@ define([
           Object.keys($e[0].attributes).forEach(function(element,i) {
             obj[$e[0].attributes[element].name]=$e[0].attributes[element].value            
           });
-          console.log(obj)
+         
+          var final_object={};debugger
+          for (var key in obj) {
+            final_object[obj["id"]]=obj["value"]==undefined?"":obj["value"]
+        }
+        console.log(final_object)
+         
           switch(type) {
             case "checkbox":
               boundContext.model.setField(name, $e.is(":checked"));
